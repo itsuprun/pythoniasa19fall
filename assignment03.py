@@ -6,7 +6,7 @@ def task1():
     on a single line.
     """
     # todo: write your code here
-
+    return ','.join(str(i) for i in range(2002, 3200) if i % 5 != 0 and i%7 == 0)
 
 def task2(rows, cols):
     """
@@ -21,7 +21,7 @@ def task2(rows, cols):
     [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8]]
     """
     # todo: write your code here
-
+    return [[x*y for y in range(cols)]for x in range(rows)]
 
 def task3(password):
     """
@@ -53,13 +53,48 @@ def task3(password):
     """
     # todo: write your code here
 
+    return (any('a' <= i <= 'z' for i in password)
+           and any('0' <= i <= '9' for i in password)
+           and any('A' <= i <= 'Z' for i in password)
+           and any( i  in '$#@' for i in password)
+           and (6 <= len(password) <= 12)            
+        )
+
 
 def task4():
     """
     Write password generator function that uses the same rules as in Task 3.
     The password generator function must be able to generate all possible correct passwords.
     """
-    # todo: write your code here
+    import random
+    from string import ascii_lowercase, ascii_uppercase, digits
+    lenght = random.randint(6,12)
+    password=['' for i in range(lenght)]
+    number = digits
+    lowercase = ascii_lowercase
+    uppercase= ascii_uppercase
+    specialSigns='$#@'
+
+    list_pos=[i for i in range(lenght)]
+
+    uppercase_pos= random.choice(list_pos)
+    password.insert(uppercase_pos,random.choice(uppercase))
+    list_pos.remove(uppercase_pos)
+
+    lowercase_pos = random.choice(list_pos)
+    password.insert(lowercase_pos, random.choice(lowercase))
+    list_pos.remove(lowercase_pos)
+
+    number_pos = random.choice(list_pos)
+    password.insert(number_pos, random.choice(number))
+    list_pos.remove(number_pos)
+
+    specialSign_pos = random.choice(list_pos)
+    password.insert(specialSign_pos, random.choice(specialSigns))
+
+    for i in list_pos:
+        password.insert(i, random.choice(number + lowercase + uppercase + specialSigns))
+    return ''.join(password)
 
 
 if __name__ == '__main__':
