@@ -6,12 +6,7 @@ def task1():
     on a single line.
     """
     # todo: write your code here
-<<<<<<< HEAD
 
-||||||| merged common ancestors
-
-
->>>>>>> assignment3
 def task2(rows, cols):
     """
     Write a program which takes 2 digits, X,Y as input and generates a 2-dimensional array.
@@ -25,12 +20,7 @@ def task2(rows, cols):
     [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8]]
     """
     # todo: write your code here
-<<<<<<< HEAD
-||||||| merged common ancestors
 
-
-
->>>>>>> assignment3
 def task3(password):
     """
     A website requires the users to input username and password to register.
@@ -61,23 +51,14 @@ def task3(password):
     """
     # todo: write your code here
 
-<<<<<<< HEAD
-||||||| merged common ancestors
-
-
->>>>>>> assignment3
 def task4():
     """
     Write password generator function that uses the same rules as in Task 3.
     The password generator function must be able to generate all possible correct passwords.
     """
-<<<<<<< HEAD
-    
-||||||| merged common ancestors
     # todo: write your code here
 
 
->>>>>>> assignment3
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
