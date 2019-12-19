@@ -69,6 +69,7 @@ This assignment is similar to 1-A except that the poem is in Russian now.
 <BLANKLINE>
 """
 
+
 def poem():
     poem_parts = [
         "В доме, который построил Джек.",
@@ -76,7 +77,7 @@ def poem():
         "Которая часто ворует пшеницу,",
         "Который пугает и ловит синицу,",
         "Который за шиворот треплет кота,",
-        "Лягнувшая старого пса без хвоста,",
+        "Лягнувшую старого пса без хвоста,",
         "Которая доит корову безрогую,",
         "Который бранится с коровницей строгою,",
         "Которые будят того пастуха,"
@@ -102,17 +103,24 @@ def poem():
     final_string = ""
     
     for i in range(len(poem_parts)):
-        counter = 1
-        final_string = final_string + poem_start[0]
+        if i in (1,2,5,6,7):
+            final_string = final_string + poem_start[1]
+        else:
+            final_string = final_string + poem_start[0]
         final_string = final_string + poem_headers[i] + "\n"
+        if i == 5:
+            poem_parts[5] = "Лягнувшая старого пса без хвоста,"
+        else: 
+            poem_parts[5] = "Лягнувшую старого пса без хвоста," 
         for m in range(i+1):
             if i != 0:
                 final_string = final_string + poem_parts[i - m]
                 final_string = final_string + "\n"
-        final_string = final_string + "---\n"
+        if i != 8:        
+            final_string = final_string + "---\n"
     
     return final_string
-
+print(poem())
 
 
 if __name__ == '__main__':
